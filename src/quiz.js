@@ -2,8 +2,8 @@ class Quiz {
   // YOUR CODE HERE:
   //
   // 1. constructor (questions, timeLimit, timeRemaining)
-  constructor(question, timeLimit, timeRemaining) {
-    this.questions = question; // array
+  constructor(questions, timeLimit, timeRemaining) {
+    this.questions = questions; // array
     this.timeLimit = timeLimit; // number
     this.timeRemaining = timeRemaining; // number
     this.correctAnswers = 0;
@@ -39,5 +39,14 @@ class Quiz {
     } else {
       return false;
     }
+  }
+
+  // 8. averageDifficulty()
+  averageDifficulty() {
+    let totalDifficulty = this.questions.reduce((acc, elem) => {
+      return acc + elem.difficulty;
+    }, 0);
+
+    return totalDifficulty / this.questions.length;
   }
 }
