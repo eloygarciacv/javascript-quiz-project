@@ -41,6 +41,16 @@ class Quiz {
     }
   }
 
+  // 7. filterQuestionsByDifficulty()
+  filterQuestionsByDifficulty(difficulty) {
+    if (typeof difficulty !== "number" || difficulty < 1 || difficulty > 3) {
+      return;
+    }
+    this.questions = this.questions.filter((question) => {
+      return question.difficulty === difficulty;
+    });
+  }
+
   // 8. averageDifficulty()
   averageDifficulty() {
     let totalDifficulty = this.questions.reduce((acc, elem) => {
