@@ -40,4 +40,19 @@ class Quiz {
       return false;
     }
   }
+
+ filterQuestionsByDifficulty(difficulty) {
+      if (
+    typeof difficulty !== "number" ||
+    difficulty < 1 ||
+    difficulty > 3
+  ) {
+    return;
+  }
+  this.questions = this.questions.filter((question) => {
+    return question.difficulty === difficulty;
+    
+  });
 }
+}
+
