@@ -209,4 +209,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Update the result container (div#result) inner text to show the number of correct answers out of total questions
     resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${quiz.questions.length} correct answers!`;
   }
+
+  /************  RESTART QUIZ  ************/
+
+  // Select the HTML button with id="restartButton"
+  const restartButton = document.querySelector("button#restartButton");
+  // Reload the page on click
+  restartButton.addEventListener("click", () => window.location.reload());
 });
