@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // choiceContainer is declared in line 11 and select the HTML element <ul id="choices"></ul>
 
-  // ELOY: this one was a bit more complicated. I take question.choices from question.js line 7, which is the array that contain all the available choices. I had to add them to the HTML using DOM manipulation, so I used the method listed in the hints above. 
+  // ELOY: this one was a bit more complicated. I take question.choices from question.js line 7, which is the array that contain all the available choices. I had to add them to the HTML using DOM manipulation, so I used the method listed in the hints above.
   // ELOY: the HTML container where I had to add the items was the <ul id="choices"> element, so I used the appendChild() method in the choiceContainer variable.
 
   function nextButtonHandler() {
@@ -172,21 +172,15 @@ document.addEventListener("DOMContentLoaded", () => {
     //
     // 1. Get all the choice elements. You can use the `document.querySelectorAll()` method.
 
-        const choiceNodes = document.querySelectorAll('input[name="choice"]');
+    const choiceNodes = document.querySelectorAll('input[name="choice"]');
 
-    // 2. Loop through all the choice elements and check which one is selected  
+    // 2. Loop through all the choice elements and check which one is selected
 
-        for (let i = 0; i < choiceNodes.length; i++) {
-          if (choiceNodes[i].checked) {
-            selectedAnswer = choiceNodes[i].value;
-            if (selectedAnswer) {
-             quiz.checkAnswer(selectedAnswer);
-             quiz.moveToNextQuestion();
-             showQuestion();
-
+    for (let i = 0; i < choiceNodes.length; i++) {
+      if (choiceNodes[i].checked) {
+        selectedAnswer = choiceNodes[i].value;
       }
-  }
-}
+    }
     // Hint: Radio input elements have a property `.checked` (e.g., `element.checked`).
     //  When a radio input gets selected the `.checked` property will be set to true.
     //  You can use check which choice was selected by checking if the `.checked` property is true.
@@ -195,14 +189,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if selected answer is correct by calling the quiz method `checkAnswer()` with the selected answer.
     // Move to the next question by calling the quiz method `moveToNextQuestion()`.
     // Show the next question by calling the function `showQuestion()`.
-}
-      if (selectedAnswer) {
-        quiz.checkAnswer(selectedAnswer);
-        quiz.moveToNextQuestion();
-        showQuestion();
-}
+
+    if (selectedAnswer) {
+      quiz.checkAnswer(selectedAnswer);
+      quiz.moveToNextQuestion();
+      showQuestion();
+    }
+  }
+
   function showResults() {
-    // YOUR CODE HERE: ISAAC HERE 
+    // YOUR CODE HERE: ISAAC HERE
     //
     // 1. Hide the quiz view (div#quizView)
     quizView.style.display = "none";
@@ -211,6 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
     endView.style.display = "flex";
 
     // 3. Update the result container (div#result) inner text to show the number of correct answers out of total questions
-  resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${quiz.questions.length} correct answers!`;
+    resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${quiz.questions.length} correct answers!`;
   }
 });
