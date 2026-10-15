@@ -71,7 +71,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /************  TIMER  ************/
 
-  let timer;
+  let timer = setInterval(() => {
+    quiz.timeRemaining -= 1;
+
+    const minutes = Math.floor(quiz.timeRemaining / 60)
+      .toString()
+      .padStart(2, "0");
+    const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
+    timeRemainingContainer.innerText = `${minutes}:${seconds}`;
+
+    if (quiz.timeRemaining <= 0) {
+      showResults();
+      clearInterval(timer);
+    }
+  }, 1000);
 
   /************  EVENT LISTENERS  ************/
 
